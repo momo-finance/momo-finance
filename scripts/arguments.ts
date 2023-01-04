@@ -1,7 +1,10 @@
+import { ethers } from "hardhat";
+
+const investableCap = 2000;
+const openWeekday = 7;
+const openHour = 0;
+const openDuration = 24;
+
 module.exports = [
-    [
-        '0x50726f706f73616c203100000000000000000000000000000000000000000000',
-        '0x50726f706f73616c203200000000000000000000000000000000000000000000',
-        '0x50726f706f73616c203300000000000000000000000000000000000000000000'
-    ]
+    ethers.utils.parseEther(investableCap.toString()), openWeekday, openHour, openDuration
 ]

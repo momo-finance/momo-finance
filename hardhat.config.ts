@@ -6,7 +6,9 @@ const ETHERSCAN_API_KEY = "K734X6PN5884ND3M3GX6GYM6FBUPD5WVRU";
 
 // Go to https://www.alchemyapi.io, sign up, create
 // a new App in its dashboard, and replace "KEY" with its key
-const ALCHEMY_API_KEY = "DmiwRaxOdCpZFibXPfQmG_jxqXfSjOq2";
+const ALCHEMY_GOERLI_API_KEY = "DmiwRaxOdCpZFibXPfQmG_jxqXfSjOq2";
+const ALCHEMY_MAINNET_API_KEY = "OsJ3cFWGgEcSPGg7gz95E1X3Tqirmj2o";
+const ALCHEMY_ARBITRUM_MAINNET_API_KEY = "phuSnQk9qe8kyR3J4ZuutQdbF-DPUBgr";
 
 // Replace this private key with your Goerli account private key.
 // To export your private key from Metamask, open Metamask and
@@ -20,8 +22,13 @@ const config: HardhatUserConfig = {
     apiKey: ETHERSCAN_API_KEY,
   },
   networks: {
+    hardhat: {
+      forking: {
+        url: `https://arb-mainnet.g.alchemy.com/v2/${ALCHEMY_ARBITRUM_MAINNET_API_KEY}`,
+      }
+    },
     goerli: {
-      url: `https://eth-goerli.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
+      url: `https://eth-goerli.g.alchemy.com/v2/${ALCHEMY_GOERLI_API_KEY}`,
       accounts: [GOERLI_PRIVATE_KEY],
     }
   }
